@@ -9,9 +9,10 @@ public class Opcion {
     public Opcion() {
     }
 
-    public Opcion(int p1, int p2) {
+    public Opcion(int p1, int p2, int empate) {
         this.p1 = p1;
         this.p2 = p2;
+        this.empate = empate;
     }
 
     public int getP1() {
@@ -72,7 +73,7 @@ public class Opcion {
             System.out.println("Punto para J1");
             this.p1 += 1;
             System.out.println();
-        } else if ((x == 1 && y == 1) || (x == 2 && y == 2) || (x == 3 && y == 3) ) {
+        } else if ((x == 1 && y == 1) || (x == 2 && y == 2) || (x == 3 && y == 3)) {
             String a = "Piedra";
             String b = "Papel";
             String c = "Tijera";
@@ -105,16 +106,28 @@ public class Opcion {
             System.out.println();
         } else if (this.empate == 2 && this.p1 == 1){
             System.out.println("El ganador es el jugador 1 con: " + this.p1 + " puntos de 3");
+            this.p1 = 0;
+            this.p2 = 0;
+            this.empate = 0;
             System.out.println();
         } else if (this.empate == 2 && this.p2 == 1) {
             System.out.println("El ganador es el jugador 2 con: " + this.p2 + " puntos de 3");
+            this.p1 = 0;
+            this.p2 = 0;
+            this.empate = 0;
             System.out.println();
         } else if (this.empate > 2 ) {
-            if (this.p1 == 1){
+            if (this.p1 >= 1){
                 System.out.println("El ganador es el jugador 1 con: " + this.p1 + " punto");
+                this.p1 = 0;
+                this.p2 = 0;
+                this.empate = 0;
                 System.out.println();
-            } else if (this.p2 == 1) {
+            } else if (this.p2 >= 1) {
                 System.out.println("El ganador es el jugador 2 con: " + this.p2 + " punto");
+                this.p1 = 0;
+                this.p2 = 0;
+                this.empate = 0;
                 System.out.println();
             }else {
                 System.out.println("No hay un ganador aún");
